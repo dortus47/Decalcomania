@@ -6,6 +6,10 @@
 //
 import SwiftUI
 import Vision
+import SwiftyTesseract
+import libtesseract
+import AppKit
+
 
 struct ImageView: View {
     
@@ -13,7 +17,8 @@ struct ImageView: View {
     @State private var lastScaleValue: CGFloat = 1.0
     @State private var recognizedText: String = ""
 //    @State private var imageName: String = "jujutsuKaisen"
-    @State private var imageName: String = "castle"
+    @State private var imageName: String = "noHurigana2"
+//    @State private var imageName: String = "castle"
     
     var body: some View {
         NavigationView {
@@ -59,7 +64,8 @@ struct ImageView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) { // 상단 툴바에 버튼 추가
                     Button(action: {
-                        performOCR(on: imageName, lang: "ko")
+                        japaneseOCR()
+//                        performOCR(on: imageName, lang: "ko")
                     }) {
                         Text("Perform OCR")
                     }
@@ -112,10 +118,66 @@ struct ImageView: View {
             recognizedText = "OCR 처리 중 오류 발생: \(error.localizedDescription)"
         }
     }
+    
+    func japaneseOCR() {
+        let tesseract = Tesseract(languages: [.custom("jpn_vert")])
+        tesseract.pageSegmentationMode = .singleBlockVerticalText
+
+        guard let image = NSImage(named: imageName) else {
+            print("Failed to load image")
+            return
+        }
+
+        guard let tiffData = image.tiffRepresentation,
+              let bitmap = NSBitmapImageRep(data: tiffData),
+              let imageData = bitmap.representation(using: .jpeg, properties: [:]) else {
+            print("Failed to load imageData")
+            return
+        }
+
+        let result: Result<String, Tesseract.Error> = tesseract.performOCR(on: imageData)
+        let resultText = try? result.get()
+
+        self.recognizedText = resultText ?? ""
+    }
 }
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         ImageView()
     }
+}
+
+public typealias PageSegmentationMode = TessPageSegMode
+
+public extension PageSegmentationMode {
+  static let osdOnly = PSM_OSD_ONLY
+  static let autoOsd = PSM_AUTO_OSD
+  static let autoOnly = PSM_AUTO_ONLY
+  static let auto = PSM_AUTO
+  static let singleColumn = PSM_SINGLE_COLUMN
+  static let singleBlockVerticalText = PSM_SINGLE_BLOCK_VERT_TEXT
+  static let singleBlock = PSM_SINGLE_BLOCK
+  static let singleLine = PSM_SINGLE_LINE
+  static let singleWord = PSM_SINGLE_WORD
+  static let circleWord = PSM_CIRCLE_WORD
+  static let singleCharacter = PSM_SINGLE_CHAR
+  static let sparseText = PSM_SPARSE_TEXT
+  static let sparseTextOsd = PSM_SPARSE_TEXT_OSD
+  static let count = PSM_COUNT
+}
+
+public extension Tesseract {
+  var pageSegmentationMode: PageSegmentationMode {
+    get {
+      perform { tessPointer in
+        TessBaseAPIGetPageSegMode(tessPointer)
+      }
+    }
+    set {
+      perform { tessPointer in
+        TessBaseAPISetPageSegMode(tessPointer, newValue)
+      }
+    }
+  }
 }

@@ -14,6 +14,8 @@
 		052B839D2C7A15E700E2E409 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 052B839C2C7A15E700E2E409 /* Preview Assets.xcassets */; };
 		05F0D1012C7A280A0009B0FB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F0D1002C7A280A0009B0FB /* ImageView.swift */; };
 		05F0D1032C7A28C70009B0FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F0D1022C7A28C70009B0FB /* Images.xcassets */; };
+		05F0D1062C7A35C10009B0FB /* SwiftyTesseract in Frameworks */ = {isa = PBXBuildFile; productRef = 05F0D1052C7A35C10009B0FB /* SwiftyTesseract */; };
+		05F0D10A2C7A3AE40009B0FB /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 05F0D1092C7A3AE40009B0FB /* tessdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		052B839E2C7A15E700E2E409 /* Decalcomania.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Decalcomania.entitlements; sourceTree = "<group>"; };
 		05F0D1002C7A280A0009B0FB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		05F0D1022C7A28C70009B0FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		05F0D1092C7A3AE40009B0FB /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F0D1062C7A35C10009B0FB /* SwiftyTesseract in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 		052B83922C7A15E600E2E409 /* Decalcomania */ = {
 			isa = PBXGroup;
 			children = (
+				05F0D1092C7A3AE40009B0FB /* tessdata */,
 				05F0D0FF2C7A27430009B0FB /* OCR */,
 				052B83932C7A15E600E2E409 /* DecalcomaniaApp.swift */,
 				052B83952C7A15E600E2E409 /* ContentView.swift */,
@@ -102,6 +107,9 @@
 			dependencies = (
 			);
 			name = Decalcomania;
+			packageProductDependencies = (
+				05F0D1052C7A35C10009B0FB /* SwiftyTesseract */,
+			);
 			productName = Decalcomania;
 			productReference = 052B83902C7A15E600E2E409 /* Decalcomania.app */;
 			productType = "com.apple.product-type.application";
@@ -130,6 +138,9 @@
 				Base,
 			);
 			mainGroup = 052B83872C7A15E600E2E409;
+			packageReferences = (
+				05F0D1042C7A35C10009B0FB /* XCRemoteSwiftPackageReference "SwiftyTesseract" */,
+			);
 			productRefGroup = 052B83912C7A15E600E2E409 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05F0D1032C7A28C70009B0FB /* Images.xcassets in Resources */,
+				05F0D10A2C7A3AE40009B0FB /* tessdata in Resources */,
 				052B839D2C7A15E700E2E409 /* Preview Assets.xcassets in Resources */,
 				052B839A2C7A15E700E2E409 /* Assets.xcassets in Resources */,
 			);
@@ -219,6 +231,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -276,6 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -369,6 +383,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		05F0D1042C7A35C10009B0FB /* XCRemoteSwiftPackageReference "SwiftyTesseract" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyTesseract/SwiftyTesseract?tab=readme-ov-file";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05F0D1052C7A35C10009B0FB /* SwiftyTesseract */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05F0D1042C7A35C10009B0FB /* XCRemoteSwiftPackageReference "SwiftyTesseract" */;
+			productName = SwiftyTesseract;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 052B83882C7A15E600E2E409 /* Project object */;
 }
