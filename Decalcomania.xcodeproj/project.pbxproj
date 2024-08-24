@@ -12,6 +12,8 @@
 		052B83982C7A15E600E2E409 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B83972C7A15E600E2E409 /* Item.swift */; };
 		052B839A2C7A15E700E2E409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 052B83992C7A15E700E2E409 /* Assets.xcassets */; };
 		052B839D2C7A15E700E2E409 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 052B839C2C7A15E700E2E409 /* Preview Assets.xcassets */; };
+		05F0D1012C7A280A0009B0FB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F0D1002C7A280A0009B0FB /* ImageView.swift */; };
+		05F0D1032C7A28C70009B0FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05F0D1022C7A28C70009B0FB /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		052B83992C7A15E700E2E409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		052B839C2C7A15E700E2E409 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		052B839E2C7A15E700E2E409 /* Decalcomania.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Decalcomania.entitlements; sourceTree = "<group>"; };
+		05F0D1002C7A280A0009B0FB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		05F0D1022C7A28C70009B0FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +58,12 @@
 		052B83922C7A15E600E2E409 /* Decalcomania */ = {
 			isa = PBXGroup;
 			children = (
+				05F0D0FF2C7A27430009B0FB /* OCR */,
 				052B83932C7A15E600E2E409 /* DecalcomaniaApp.swift */,
 				052B83952C7A15E600E2E409 /* ContentView.swift */,
 				052B83972C7A15E600E2E409 /* Item.swift */,
 				052B83992C7A15E700E2E409 /* Assets.xcassets */,
+				05F0D1022C7A28C70009B0FB /* Images.xcassets */,
 				052B839E2C7A15E700E2E409 /* Decalcomania.entitlements */,
 				052B839B2C7A15E700E2E409 /* Preview Content */,
 			);
@@ -70,6 +76,14 @@
 				052B839C2C7A15E700E2E409 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		05F0D0FF2C7A27430009B0FB /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				05F0D1002C7A280A0009B0FB /* ImageView.swift */,
+			);
+			path = OCR;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F0D1032C7A28C70009B0FB /* Images.xcassets in Resources */,
 				052B839D2C7A15E700E2E409 /* Preview Assets.xcassets in Resources */,
 				052B839A2C7A15E700E2E409 /* Assets.xcassets in Resources */,
 			);
@@ -142,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F0D1012C7A280A0009B0FB /* ImageView.swift in Sources */,
 				052B83962C7A15E600E2E409 /* ContentView.swift in Sources */,
 				052B83982C7A15E600E2E409 /* Item.swift in Sources */,
 				052B83942C7A15E600E2E409 /* DecalcomaniaApp.swift in Sources */,
