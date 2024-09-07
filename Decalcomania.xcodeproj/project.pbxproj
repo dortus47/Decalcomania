@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0503967B2C8C245F006EEFA3 /* Tesseract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0503967A2C8C245F006EEFA3 /* Tesseract.swift */; };
 		052B83942C7A15E600E2E409 /* DecalcomaniaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B83932C7A15E600E2E409 /* DecalcomaniaApp.swift */; };
 		052B83962C7A15E600E2E409 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B83952C7A15E600E2E409 /* ContentView.swift */; };
 		052B83982C7A15E600E2E409 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052B83972C7A15E600E2E409 /* Item.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0503967A2C8C245F006EEFA3 /* Tesseract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tesseract.swift; sourceTree = "<group>"; };
 		052B83902C7A15E600E2E409 /* Decalcomania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decalcomania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		052B83932C7A15E600E2E409 /* DecalcomaniaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecalcomaniaApp.swift; sourceTree = "<group>"; };
 		052B83952C7A15E600E2E409 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				05F0D1002C7A280A0009B0FB /* ImageView.swift */,
+				0503967A2C8C245F006EEFA3 /* Tesseract.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0503967B2C8C245F006EEFA3 /* Tesseract.swift in Sources */,
 				05F0D1012C7A280A0009B0FB /* ImageView.swift in Sources */,
 				052B83962C7A15E600E2E409 /* ContentView.swift in Sources */,
 				052B83982C7A15E600E2E409 /* Item.swift in Sources */,

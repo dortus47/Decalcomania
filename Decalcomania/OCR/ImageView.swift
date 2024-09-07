@@ -6,9 +6,9 @@
 //
 import SwiftUI
 import Vision
+import AppKit
 import SwiftyTesseract
 import libtesseract
-import AppKit
 
 
 struct ImageView: View {
@@ -64,8 +64,8 @@ struct ImageView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) { // 상단 툴바에 버튼 추가
                     Button(action: {
-                        japaneseOCR()
-//                        performOCR(on: imageName, lang: "ko")
+                        japaneseVerticalOCR()
+//                        performOCR(on: imageName, lang: "ja")
                     }) {
                         Text("Perform OCR")
                     }
@@ -75,7 +75,8 @@ struct ImageView: View {
     }
 
     // OCR 기능
-    func performOCR(on imageName: String, lang: String = "ja") {
+    private func performOCR(on imageName: String, lang: String = "ja") {
+        
         guard let image = NSImage(named: imageName),
               let cgImage = image.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
             recognizedText = "이미지를 불러오는데 실패했습니다."
@@ -119,7 +120,8 @@ struct ImageView: View {
         }
     }
     
-    func japaneseOCR() {
+    private func japaneseVerticalOCR() {
+        
         let tesseract = Tesseract(languages: [.custom("jpn_vert")])
         tesseract.pageSegmentationMode = .singleBlockVerticalText
 
@@ -148,36 +150,3 @@ struct ImageView_Previews: PreviewProvider {
     }
 }
 
-public typealias PageSegmentationMode = TessPageSegMode
-
-public extension PageSegmentationMode {
-  static let osdOnly = PSM_OSD_ONLY
-  static let autoOsd = PSM_AUTO_OSD
-  static let autoOnly = PSM_AUTO_ONLY
-  static let auto = PSM_AUTO
-  static let singleColumn = PSM_SINGLE_COLUMN
-  static let singleBlockVerticalText = PSM_SINGLE_BLOCK_VERT_TEXT
-  static let singleBlock = PSM_SINGLE_BLOCK
-  static let singleLine = PSM_SINGLE_LINE
-  static let singleWord = PSM_SINGLE_WORD
-  static let circleWord = PSM_CIRCLE_WORD
-  static let singleCharacter = PSM_SINGLE_CHAR
-  static let sparseText = PSM_SPARSE_TEXT
-  static let sparseTextOsd = PSM_SPARSE_TEXT_OSD
-  static let count = PSM_COUNT
-}
-
-public extension Tesseract {
-  var pageSegmentationMode: PageSegmentationMode {
-    get {
-      perform { tessPointer in
-        TessBaseAPIGetPageSegMode(tessPointer)
-      }
-    }
-    set {
-      perform { tessPointer in
-        TessBaseAPISetPageSegMode(tessPointer, newValue)
-      }
-    }
-  }
-}
