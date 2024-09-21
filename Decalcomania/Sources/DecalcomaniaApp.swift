@@ -4,7 +4,8 @@ import SwiftUI
 struct DecalcomaniaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ImageView()
+//            ContentView()
         }
     }
 }

@@ -10,7 +10,11 @@ let project = Project(
             bundleId: "io.tuist.Decalcomania",
             infoPlist: .default,
             sources: ["Decalcomania/Sources/**"],
-            resources: ["Decalcomania/Resources/**"],
+            resources: [
+                "Decalcomania/Resources/**",
+                "Decalcomania/OCR/**",
+                .folderReference(path: "Decalcomania/tessdata") // 폴더 레퍼런스로 추가
+            ],
             dependencies: []
         ),
         .target(
